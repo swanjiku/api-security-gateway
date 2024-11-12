@@ -14,11 +14,13 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
 import java.time.Duration;
+import java.util.concurrent.ConcurrentHashMap;
 
 @Component
 public class RateLimiterFilter extends OncePerRequestFilter {
 
     private final Bucket bucket;
+    private final ConcurrentHashMap<String, Integer> requestCount = new ConcurrentHashMap<>();
 
     public RateLimiterFilter() {
         // Set rate limit to 5 requests per minute
@@ -36,7 +38,20 @@ public class RateLimiterFilter extends OncePerRequestFilter {
             return;
         }
 
-        // Check if bucket has tokens available
+        String clientIP = request.getRemoteAddr();
+        requestCount.putIfAbsent(clientIP, 0);
+        int count = requestCount.get(clientIP);
+
+        if (count > 100) {
+            // Anomaly detected: Too many requests in a short period
+            response.setStatus(HttpStatus.TOO_MANY_REQUESTS.value());
+            response.getWriter().write("Too Many Requests - Suspicious activity detected.");
+            return;
+        }
+
+        requestCount.put(clientIP, count + 1);
+
+        // Check if bucket has tokens available for rate limiting
         if (bucket.tryConsume(1)) {
             // If allowed, continue to the next filter or controller
             filterChain.doFilter(request, response);
