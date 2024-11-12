@@ -106,6 +106,14 @@
 			<scope>runtime</scope>
 		</dependency>
 
+		<!-- Bucket4j for rate limiting -->
+		<dependency>
+			<groupId>com.bucket4j</groupId>
+			<artifactId>bucket4j_jdk8-caffeine</artifactId>
+			<version>8.1.0</version>
+		</dependency>
+
+
 		<!-- Spring Boot Test for unit testing -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
