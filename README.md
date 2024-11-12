@@ -1,4 +1,4 @@
-# Advanced API Gateway
+# API Security Gateway
 
 An API gateway built with Spring Boot, implementing advanced security features using JWT-based authentication, rate limiting with Bucket4j, and real-time threat detection capabilities.
 
@@ -20,6 +20,6 @@ An API gateway built with Spring Boot, implementing advanced security features u
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/advanced-api-gateway.git
-cd advanced-api-gateway
+git clone https://github.com/swanjiku/api-security-gateway.git
+cd api-security-gateway
 ```
