@@ -19,7 +19,7 @@ A secure API gateway built with Spring Boot, designed to enhance API security an
 
 ### Setup Instructions
 
-1. Clone the Repository
+1. Clone the repository:
 
 ```bash
 git clone https://github.com/swanjiku/api-security-gateway.git
