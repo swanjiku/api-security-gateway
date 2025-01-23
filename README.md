@@ -1,25 +1,31 @@
 # API Security Gateway
 
-An API gateway built with Spring Boot, implementing advanced security features using JWT-based authentication, rate limiting with Bucket4j, and real-time threat detection capabilities.
+A secure API gateway built with Spring Boot, designed to enhance API security and efficiency. This gateway implements JWT-based authentication, rate limiting using Bucket4j, and real-time threat detection for robust protection against malicious activities.
 
 ## Features
 
-- **JWT Authentication**: Secures API endpoints, allowing only authenticated users to access protected resources.
-- **Rate Limiting**: Controls the number of requests a client can make within a certain time frame to prevent abuse.
-- **Real-Time Threat Detection**: Detects suspicious activity by monitoring unusual access patterns and blocking potentially malicious IPs.
+- **JWT Authentication**: Protects API endpoints by allowing access only to authenticated users.
+- **Rate Limiting**: Uses Bucket4j to limit the number of requests a client can make within a specified timeframe, preventing abuse and ensuring fair usage.
+- **Real-Time Threat Detection**: Monitors unusual access patterns, identifies suspicious activities, and blocks potentially malicious IPs to safeguard the system.
 
 ## Prerequisites
 
-- **Java 17**
-- **Maven 3.8+**
-- **Spring Boot 3.3.5**
-- **Redis** (optional, if distributed rate limiting or IP block listing is required)
+- **Java**: Version 17 or later
+- **Maven**: Version 3.8+
+- **Spring Boot**: Version 3.3.5
+- **Redis**(optional): Required if using distributed rate limiting or IP blocklisting
 
 ## Getting Started
 
-### Clone the Repository
+### Setup Instructions
+
+1. Clone the Repository
 
 ```bash
 git clone https://github.com/swanjiku/api-security-gateway.git
-cd api-security-gateway
 ```
+2. Navigate to the project directory:
+
+  ```bash
+  cd api-security-gateway
+  ```
